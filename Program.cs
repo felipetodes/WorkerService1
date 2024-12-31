@@ -1,13 +1,19 @@
-namespace WorkerService1
+using WorkerService1;
+
+namespace WorkerServiceExemploAula
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var builder = Host.CreateApplicationBuilder(args);
-            builder.Services.AddHostedService<Worker>();
+            IHost host = Host.CreateDefaultBuilder(args)
+                .ConfigureServices(services =>
+                {
+                    //services.AddHostedService<Worker>();
+                    services.AddHostedService<MonitoramentoClima>();
+                })
+                .Build();
 
-            var host = builder.Build();
             host.Run();
         }
     }
