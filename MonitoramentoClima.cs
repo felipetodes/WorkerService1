@@ -23,6 +23,7 @@ namespace WorkerService1
         {
             while (!stoppingToken.IsCancellationRequested)
             {
+                EventLog.WriteEntry("WorkerService1", "Início da chamada API!", EventLogEntryType.Information);
                 var client = new RestClient("http://apiadvisor.climatempo.com.br/api/v1");
                 var request = new RestRequest("weather/locale/5346/current", Method.Get);
                 request.AddQueryParameter("token", "94ea3795e171cb3a321ff95529cab20f");
@@ -39,7 +40,7 @@ namespace WorkerService1
                         //_logger.LogWarning($"{DateTime.Now:dd/MM/yyyy 'às' HH:mm:ss} Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}");
                     }
                 }
-
+                EventLog.WriteEntry("WorkerService1", "Final da chamada API!", EventLogEntryType.Information);
                 await Task.Delay(5000, stoppingToken);
                 }
 
