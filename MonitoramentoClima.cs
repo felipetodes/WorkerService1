@@ -39,7 +39,7 @@ namespace WorkerService1
                     if (objClimaAtual != null)
                     {
                         GravarLog($"Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}");
-                        _logger.LogWarning($"Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}"));
+                        _logger.LogWarning($"{DateTime.Now:dd/MM/yyyy 'às' HH:mm:ss} Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}");
                     }
                 }
 
