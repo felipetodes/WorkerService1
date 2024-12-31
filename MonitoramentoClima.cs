@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace WorkerService1
                     if (objClimaAtual != null)
                     {
                         GravarLog($"Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}");
-                        _logger.LogWarning($"{DateTime.Now:dd/MM/yyyy 'às' HH:mm:ss} Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}");
+                        //_logger.LogWarning($"{DateTime.Now:dd/MM/yyyy 'às' HH:mm:ss} Cidade: {objClimaAtual.Name} - Temperatura: {objClimaAtual.Data.Temperature} - Condição: {objClimaAtual.Data.Condition}");
                     }
                 }
 
@@ -43,6 +44,20 @@ namespace WorkerService1
                 }
 
             }
+
+        public override Task StartAsync(CancellationToken cancellationToken)
+        {
+            EventLog.WriteEntry("WorkerService1", "Iniciando o serviço de monitoramento do clima", EventLogEntryType.Information);
+            return base.StartAsync(cancellationToken);
+
+        }
+
+        public override Task StopAsync(CancellationToken cancellationToken)
+        {
+            EventLog.WriteEntry("WorkerService1", "Iniciando o serviço de monitoramento do clima", EventLogEntryType.Information);
+            return base.StartAsync(cancellationToken);
+
+        }
 
         private void GravarLog(string mensagem)
         {
