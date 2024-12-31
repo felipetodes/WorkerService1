@@ -12,6 +12,7 @@ namespace WorkerServiceExemploAula
                     //services.AddHostedService<Worker>();
                     services.AddHostedService<MonitoramentoClima>();
                 })
+                .UseWindowsService()
                 .Build();
 
             host.Run();
