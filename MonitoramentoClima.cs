@@ -22,10 +22,6 @@ namespace WorkerService1
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-               
-
-
-
                 var client = new RestClient("http://apiadvisor.climatempo.com.br/api/v1");
                 var request = new RestRequest("weather/locale/5346/current", Method.Get);
                 request.AddQueryParameter("token", "94ea3795e171cb3a321ff95529cab20f");
