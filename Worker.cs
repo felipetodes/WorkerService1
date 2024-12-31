@@ -15,7 +15,7 @@ namespace WorkerService1
             {
                 if (_logger.IsEnabled(LogLevel.Information))
                 {
-                    _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                    _logger.LogWarning("Worker running at: {time}", DateTimeOffset.Now);
                 }
                 await Task.Delay(2000, stoppingToken);
             }
