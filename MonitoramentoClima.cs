@@ -54,7 +54,7 @@ namespace WorkerService1
 
         public override Task StopAsync(CancellationToken cancellationToken)
         {
-            EventLog.WriteEntry("WorkerService1", "Iniciando o serviço de monitoramento do clima", EventLogEntryType.Information);
+            EventLog.WriteEntry("WorkerService1", "Parando o serviço de monitoramento do clima", EventLogEntryType.Information);
             return base.StartAsync(cancellationToken);
 
         }
